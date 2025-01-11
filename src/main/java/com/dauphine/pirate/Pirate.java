@@ -1,4 +1,6 @@
-package com.dauphine;
+package com.dauphine.pirate;
+
+import com.dauphine.pirate.Perroquet;
 
 public class Pirate {
     private int age;
@@ -35,7 +37,7 @@ public class Pirate {
      * Affiche les informations du pirate.
      */
     public String toString() {
-        return "com.dauphine.Pirate [Âge: " + age + ", Grade: " + grade + ", com.dauphine.Perroquet: " + perroquet + "]";
+        return "com.dauphine.pirate.Pirate [Âge: " + age + ", Grade: " + grade + ", com.dauphine.pirate.Perroquet: " + perroquet + "]";
     }
 
     /**

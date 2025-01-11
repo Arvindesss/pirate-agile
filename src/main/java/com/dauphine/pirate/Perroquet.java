@@ -1,4 +1,4 @@
-package com.dauphine;
+package com.dauphine.pirate;
 
 public class Perroquet {
 

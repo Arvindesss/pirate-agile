@@ -1,7 +1,7 @@
 package com.dauphine.steps;
 
-import com.dauphine.Perroquet;
-import com.dauphine.Pirate;
+import com.dauphine.pirate.Perroquet;
+import com.dauphine.pirate.Pirate;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
