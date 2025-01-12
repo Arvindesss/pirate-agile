@@ -1,43 +1,28 @@
-package com.dauphine.pirate;
+package com.dauphine.vaccinable.impl;
 
-import com.dauphine.pirate.Perroquet;
+import com.dauphine.vaccin.IVaccin;
 
-public class Pirate {
-    private int age;
+public class Pirate extends Personne {
+
     private String grade;
-    private String nom;
+
     private Perroquet perroquet;
 
     /**
      * Constructeur d'objets de classe Pirate
      */
-    
-    public Pirate() {
-        age = 0;
-        grade = "Moussaillon";
-        perroquet = null; // Aucun perroquet au départ
-    }
-
-    public Pirate(int age, String grade, String nom) {
-        this.age = age;
+    public Pirate(String nom, String prenom, int age, String grade) {
+        super(nom, prenom, age);
         this.grade = grade;
-        this.nom = nom;
         this.perroquet = null;
-    }
-
-    /**
-     * Fait vieillir le pirate.
-     * @param nbAnnee le nombre d'années à rajouter dans l'age du pirate
-     */
-    public void vieillir(int nbAnnee) {
-        this.age += nbAnnee;
     }
 
     /**
      * Affiche les informations du pirate.
      */
+    @Override
     public String toString() {
-        return "com.dauphine.pirate.Pirate [Âge: " + age + ", Grade: " + grade + ", com.dauphine.pirate.Perroquet: " + perroquet + "]";
+        return "Pirate [Âge: " + super.getAge() + ", Grade: " + grade + "]";
     }
 
     /**
@@ -53,6 +38,16 @@ public class Pirate {
         }
     }
 
+    public void vaccinerPeroquet(int numVaccin) {
+        try {
+            IVaccin vaccin = super.getVaccinsDisponibles().get(numVaccin);
+            perroquet.recevoirVaccin(vaccin);
+            super.getVaccinsDisponibles().remove(numVaccin);}
+        catch (IndexOutOfBoundsException e) {
+            throw new RuntimeException("Le vaccin recherché n'existe pas");
+        }
+    }
+
     // Getters et Setters
 
     public void setPerroquet(Perroquet nouveauPerroquet) {
@@ -61,25 +56,6 @@ public class Pirate {
 
     public Perroquet getPerroquet() {
         return perroquet;
-    }
-
-    /**
-     * Retourne l'âge du pirate.
-     * 
-     * @return l'âge actuel du pirate
-     */
-    public int getAge()
-    {
-        return age;
-    }
-
-    /**
-     * Modifie l'âge du pirate.
-     * 
-     * @param nouvelAge le nouvel âge du pirate
-     */
-    public void setAge(int nouvelAge) {
-        age = nouvelAge;
     }
 
     /**

@@ -6,7 +6,7 @@ Feature: US_VieillirPirate
   Afin que mon âge reflète correctement le temps qui s’écoule.
 
   Scenario Outline: Le pirate vieillit d'un an
-    Given un pirate âgé de <ageInitial> ans
+    Given un pirate avec le nom "Sparrow", le prenom "Jack", âgé de <ageInitial> ans et étant "Capitaine"
     When Le pirate vieillit de <nbAnnee> années
     Then l'âge du pirate doit maintenant être <ageFinal>
     Examples:

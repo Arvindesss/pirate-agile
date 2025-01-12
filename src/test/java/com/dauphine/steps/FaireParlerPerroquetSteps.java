@@ -1,7 +1,7 @@
 package com.dauphine.steps;
 
-import com.dauphine.pirate.Perroquet;
-import com.dauphine.pirate.Pirate;
+import com.dauphine.vaccinable.impl.Perroquet;
+import com.dauphine.vaccinable.impl.Pirate;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,17 +9,17 @@ import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FaireParlerPerroquetSteps {
+
     private Pirate pirate;
 
     private Perroquet perroquet;
 
     private String dernierMessage;
 
-    @Given("un pirate possédant un perroquet nommé {string}")
-    public void un_pirate_possedant_un_perroquet_nomme(String nomPerroquet) {
-        pirate = new Pirate();
-        perroquet = new Perroquet();
-        perroquet.setNom(nomPerroquet);
+    @Given("un pirate possédant un perroquet nommé {string}, de couleur {string}, et agé de {int} ans")
+    public void un_pirate_possedant_un_perroquet_nomme(String nomPerroquet, String couleur, int age) {
+        pirate = new Pirate("inconnu","inconnu",12,"inconnu");
+        perroquet = new Perroquet(nomPerroquet, couleur, age);
     }
 
     @Given("ce perroquet existe et est associé au pirate")
